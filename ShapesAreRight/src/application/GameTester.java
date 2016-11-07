@@ -17,7 +17,7 @@ public class GameTester extends Application {
 			
 		
 			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,800,700);
 			
 
 			
