@@ -2,7 +2,11 @@ package application;
 
 import java.util.Set;
 
+import javafx.collections.ObservableList;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 
 /**
  * This represents a trial, which contains a mystery shape and what the users guess is
@@ -23,16 +27,19 @@ public class Trial extends GridPane{
 	
 	/**
 	 * This generates a trial with a mystery shape and a selector
-	 * @param possibleSides The possible sides that the shape can have
-	 * @param possibleColors The possible colors that the shape can be
+	 * @param selectedShapes The possible sides that the shape can have
+	 * @param selectedColors The possible colors that the shape can be
 	 */
 	public Trial(Set<Integer> possibleSides, Set<NamedColor> possibleColors) {
 		super();
+		
 		
 		shapeDisplay = new MysteryShape(possibleSides, possibleColors);
 		shapeSelector = new ShapeSelector(possibleSides, possibleColors);
 		super.addRow(0, shapeDisplay);
 		super.addRow(1, shapeSelector);
+		
+		shapeDisplay.setPrefHeight(225);
 	}
 
 	/**

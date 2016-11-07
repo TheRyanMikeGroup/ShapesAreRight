@@ -3,6 +3,7 @@ package application;
 import java.util.Random;
 import java.util.Set;
 
+import javafx.collections.ObservableList;
 import javafx.scene.layout.StackPane;
 
 public class MysteryShape extends StackPane{
@@ -19,14 +20,15 @@ public class MysteryShape extends StackPane{
 	
 	/**
 	 * Creates a mystery shape with a random number of sides and color from the two sets
-	 * @param possibleSides The possible number of sides the shape can have
-	 * @param possibleColors The possible colors the shape can be
+	 * @param selectedShapes The possible number of sides the shape can have
+	 * @param selectedColors The possible colors the shape can be
 	 */
 	public MysteryShape(Set<Integer> possibleSides, Set<NamedColor> possibleColors) {
 		super();
 		this.setPrefSize(100, 100);
 		shape = new ColoredShape(getRandomFromSet(possibleSides),
 									getRandomFromSet(possibleColors));
+		//shape.setVisible(false);
 		
 		super.getChildren().add(shape);
 		super.getChildren().add(curtain);
@@ -57,6 +59,7 @@ public class MysteryShape extends StackPane{
 	public void reveal() {
 		
 		//Reveals the object behind the curtain
+		//shape.setVisible(true);
 		curtain.reveal();
 		
 	}

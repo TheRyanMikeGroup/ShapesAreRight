@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
@@ -55,8 +56,8 @@ public class Shape extends AnchorPane{
 		scale.setPivotY(INITIAL_DIMENSION /2);
 		
 		//Sets the window size to the initial size
-		super.setHeight(INITIAL_DIMENSION);
-		super.setWidth(INITIAL_DIMENSION);
+		super.setPrefHeight(2*INITIAL_DIMENSION);
+		super.setPrefWidth(INITIAL_DIMENSION);
 		
 		//Adds the application style sheet
 		getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -77,6 +78,7 @@ public class Shape extends AnchorPane{
 		
 		//Adds the Regular Polygon to the pane
 		super.getChildren().add(polygon);
+		
 				
 		//Creates the label
 		text = new Text("" + num_sides);
@@ -87,6 +89,7 @@ public class Shape extends AnchorPane{
 		
 		//Sets the style of text
 		text.getStyleClass().add("defaultNoncoloredPolygon");
+		
 		
 		super.getChildren().add(text);
 		

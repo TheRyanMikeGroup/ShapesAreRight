@@ -3,10 +3,12 @@ package application;
 
 import java.util.Set;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 
@@ -21,7 +23,7 @@ public class Game extends BorderPane{
 	/**
 	 * The possible number of sides the shapes can have
 	 */
-	private Set<Integer> possibleSides;
+	 private Set<Integer> possibleSides;
 	
 	/**
 	 * The possible Colors the shapes can have
@@ -39,14 +41,14 @@ public class Game extends BorderPane{
 	private Board board;
 	
 	/**
-	 * The reveal button for the user to lock in thier answer and reveal the next one
+	 * The reveal button for the user to lock in thier (***their***) answer and reveal the next one
 	 */
 	private Button revealButton = new Button("Reveal");
 	
 	/**
 	 * The quit button for if the user is done playing this sorry excuse for a game
 	 */
-	private Button quitButton = new Button("Quit");
+	//private Button quitButton = new Button("Quit");
 	
 	/**
 	 * Button to move the user on to the next round
@@ -76,12 +78,23 @@ public class Game extends BorderPane{
 	/**
 	 * Creates a game with following traits
 	 * @param number_of_trials The number of trials that the game will have
-	 * @param possibleSides The set of possible sides the shapes can have
-	 * @param possibleColors The set of possible colors the shape can have
+	 * @param selectedShapes The set of possible sides the shapes can have
+	 * @param selectedColors The set of possible colors the shape can have
 	 */
 	public Game(int number_of_trials, Set<Integer> possibleSides, Set<NamedColor> possibleColors)
 	{
 		super();
+		
+		//quitButton.setTranslateX(300);
+		//quitButton.setTranslateY(300);
+				
+		
+		nextRoundButton.setTranslateX(500);
+		nextRoundButton.setTranslateY(100);
+		
+		revealButton.setTranslateX(500);
+		revealButton.setTranslateY(200);
+		
 
 		//Creates an initial board
 		board = new Board(number_of_trials, possibleSides, possibleColors);
@@ -92,18 +105,24 @@ public class Game extends BorderPane{
 		//Disable the reveal and next round button because we have not finished the next round and all the guesses are not valid
 		nextRoundButton.setDisable(true);
 		
-		//Adds the reveal, next round and quit buttons to the bottom pane
-		bottomPane.getChildren().add(revealButton);
-		bottomPane.getChildren().add(quitButton);
-		bottomPane.getChildren().add(nextRoundButton);
-		
 		//Initializes the points label to show the number of points
 		 pointLabel = new Label("Points: ");
 		
+		
+		//Adds the reveal, next round and quit buttons to the bottom pane
+		bottomPane.getChildren().add(revealButton);
+		//bottomPane.getChildren().add(quitButton);
+		bottomPane.getChildren().add(nextRoundButton);
+		bottomPane.getChildren().add(pointLabel);
+
+		
+
+		
 		//Adds the bottom pane to the bottom, the board for the first round to the center and the point counter to the top.
+		//super.setBottom(root);
+		super.setTop(board);
 		super.setBottom(bottomPane);
-		super.setCenter(board);
-		super.setTop(pointLabel);
+
 		
 		revealButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
@@ -147,7 +166,8 @@ public class Game extends BorderPane{
 				board = new Board(number_of_trials, possibleSides, possibleColors);
 				
 				//Adds the board to the center
-				setCenter(board);
+				setTop(board);
+				setBottom(bottomPane);
 				
 				//Enables the reveal button
 				revealButton.setDisable(false);

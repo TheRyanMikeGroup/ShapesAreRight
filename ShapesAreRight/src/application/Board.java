@@ -12,7 +12,7 @@ import javafx.scene.layout.GridPane;
 public class Board extends GridPane{
 
 	/**
-	 * This is the array of trials
+	 * This is the array of trials.
 	 */
 	private Trial[] trials;
 	
@@ -29,7 +29,10 @@ public class Board extends GridPane{
 	 */
 	public Board(int number_of_trials, Set<Integer> possibleSides,
 			Set<NamedColor> possibleColors) {
+		
 		super();
+		super.setPrefHeight(300);
+		super.setPrefWidth(800);
 		
 		trials = new Trial[number_of_trials];
 		
