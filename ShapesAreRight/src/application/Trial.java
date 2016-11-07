@@ -28,7 +28,6 @@ public class Trial extends GridPane{
 	 */
 	public Trial(Set<Integer> possibleSides, Set<NamedColor> possibleColors) {
 		super();
-		
 		shapeDisplay = new MysteryShape(possibleSides, possibleColors);
 		shapeSelector = new ShapeSelector(possibleSides, possibleColors);
 		super.addRow(0, shapeDisplay);
