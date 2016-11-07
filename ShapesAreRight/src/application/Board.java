@@ -30,7 +30,6 @@ public class Board extends GridPane{
 	public Board(int number_of_trials, Set<Integer> possibleSides,
 			Set<NamedColor> possibleColors) {
 		super();
-		
 		trials = new Trial[number_of_trials];
 		
 		for(int i = 0; i < number_of_trials; i++)
