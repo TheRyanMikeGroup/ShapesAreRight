@@ -29,11 +29,7 @@ public class Board extends GridPane{
 	 */
 	public Board(int number_of_trials, Set<Integer> possibleSides,
 			Set<NamedColor> possibleColors) {
-		
 		super();
-		super.setPrefHeight(300);
-		super.setPrefWidth(800);
-		
 		trials = new Trial[number_of_trials];
 		
 		for(int i = 0; i < number_of_trials; i++)

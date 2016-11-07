@@ -31,6 +31,7 @@ public class Curtain extends AnchorPane{
 	public Curtain()
 	{
 		super();
+		
 		//Creates the curtain object that hides the shape
 		curtain = new ImageView("curtain.jpg");
 		super.getChildren().add(curtain);
