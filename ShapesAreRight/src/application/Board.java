@@ -12,7 +12,7 @@ import javafx.scene.layout.GridPane;
 public class Board extends GridPane{
 
 	/**
-	 * This is the array of trials. test
+	 * This is the array of trials.
 	 */
 	private Trial[] trials;
 	
